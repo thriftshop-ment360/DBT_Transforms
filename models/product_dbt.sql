@@ -2,7 +2,7 @@
 
 with transform_product as (
 select
-  product_id
+  product_id	
   ,product_name		
   ,product_category		
   ,product_sub_category			
@@ -12,7 +12,7 @@ select
   ,product_type	
   ,product_rating			
   ,product_description	
-  ,round((market_price * 1.1), 2) as tax_percentage				
+  ,('10%') as tax_percentage				
   ,'https://www.istockphoto.com/illustrations/loading-icon' as product_image			
   ,current_datetime as created_datetime	
   ,current_datetime as updated_datetime	
