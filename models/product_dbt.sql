@@ -12,7 +12,7 @@ SELECT
   ,P.product_type
   ,P.product_rating    
   ,P.product_description  
-  ,('10%') as tax_percentage        
+  ,('10') as tax_percentage        
   ,I.image_url AS product_image
   ,current_datetime as created_datetime
   ,current_datetime as updated_datetime
