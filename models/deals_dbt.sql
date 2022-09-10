@@ -6,7 +6,7 @@ with transform_deals as (
   ROW_NUMBER() OVER() AS deal_id,
   CAST(product_id AS INT) as product_id,
   product_name,
-  'half_price' as deal_type,
+  'Half Price' as deal_type,
   DATETIME(2022, 09, 12, 00, 00, 00) as deal_start_datetime,
   DATETIME_ADD(DATETIME "2022-09-13 00:00:00", INTERVAL 1 WEEK) as deal_end_datetime,
   '50 %' deal_percentage,
