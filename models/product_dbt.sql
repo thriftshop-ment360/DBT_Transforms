@@ -1,23 +1,25 @@
 {{ config(materialized='table') }}
 
 with transform_product as (
-select
-  product_id
-  ,product_name		
-  ,product_category		
-  ,product_sub_category			
-  ,brand				
-  ,sale_price	
-  ,market_price			
-  ,product_type	
-  ,product_rating			
-  ,product_description	
-  ,round((market_price * 1.1), 2) as tax_percentage				
-  ,'https://www.istockphoto.com/illustrations/loading-icon' as product_image			
-  ,current_datetime as created_datetime	
-  ,current_datetime as updated_datetime	
-  ,'yes' as is_active	
-  from `thriftshop_mysql_test.product_staging`
+SELECT
+  P.product_id  
+  ,P.product_name  
+  ,P.product_category  
+  ,P.product_sub_category    
+  ,P.brand        
+  ,P.sale_price
+  ,P.market_price    
+  ,P.product_type
+  ,P.product_rating    
+  ,P.product_description  
+  ,('10') as tax_percentage        
+  ,I.image_url AS product_image
+  ,current_datetime as created_datetime
+  ,current_datetime as updated_datetime
+  ,'yes' as is_active
+FROM `thriftshop_mysql_test.product_staging` P
+INNER JOIN `thriftshop_mysql_test.images_by_subcategory` I
+  ON P.product_sub_category = I.product_sub_category
 )
 
 select *
