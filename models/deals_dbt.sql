@@ -1,6 +1,7 @@
 {{ config(materialized='table') }}
 
-with transform_deals as (
+with transform_deals as 
+(
   'half_price' as deal_type,
   DATETIME(2022, 09, 12, 00, 00, 00) as deal_start_datetime,
   DATETIME_ADD(DATETIME "2022-09-13 00:00:00", INTERVAL 1 WEEK) as deal_end_datetime,
