@@ -3,7 +3,7 @@
 with transform_deals as (
  SELECT 
   ROW_NUMBER() OVER() AS deal_id,
-  product_id,
+  CAST(product_id AS INT),
   product_name,
   'half_price' as deal_type,
   'bigbasket' as shop_name,
