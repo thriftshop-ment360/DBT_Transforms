@@ -8,7 +8,7 @@ my_new_project:  # your profile name from dbt_project.yml
       project: crafty-clover-357212
       # name of the project in BigQuery
       dataset: dbt_thriftshopment360
-      location: australia-southeast1
+      location: us-central1 
       # your dataset for development (usually your name)
       threads: 1
       timeout_seconds: 300
